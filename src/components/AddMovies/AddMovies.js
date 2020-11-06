@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {HashRouter as Router, Route} from 'react-router-dom';
 
-class DetailsPage extends Component {
+class AddMovies extends Component {
+
   render() {
     return (
       <div className="App">
@@ -12,4 +13,4 @@ class DetailsPage extends Component {
   }
 }
 
-export default DetailsPage;
+export default AddMovies;
