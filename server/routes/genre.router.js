@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
         res.send(result.rows);
     }).catch((error) =>{
       console.log(`Error with Query` , error);
-    })
-  res.sendStatus(500);
+      res.sendStatus(500);
+    });
 });
 
 module.exports = router;
