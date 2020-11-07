@@ -5,10 +5,12 @@ import axios from 'axios';
 
 class HomePage extends Component {
 
+    // setting state as an empty [] lets us map, through the state inside of our getMovies function
     state = {
         movieObject: []
     };
 
+    // axios get request to receive movie object from database and sets the object to this components State
     getMovies = () => {
         console.log('in get movies!');
         axios({
@@ -26,6 +28,7 @@ class HomePage extends Component {
         });
     }
 
+    // fires off funtions on pageload! 
     componentDidMount = () => {
         this.getMovies();
     }
