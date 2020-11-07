@@ -13,7 +13,11 @@ class DetailsPage extends Component {
         <h1>YOU MADE IT TO DetailsPage</h1>
        <h1> we'll add details here </h1>
        {this.props.reduxState.genres.map((fullDetail) =>{
-         return <img alt={fullDetail.title} src={fullDetail.poster}></img> 
+         return <div key={fullDetail.name}> <img alt={fullDetail.title} src={fullDetail.poster}></img> 
+          <p> {fullDetail.title} </p>
+          <p> {fullDetail.description} </p>
+          <p> {fullDetail.name} </p>
+       </div>
        })}
        {/* {JSON.stringify(this.props.reduxState)} */}
       </div>
