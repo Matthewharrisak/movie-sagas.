@@ -19,7 +19,7 @@ function* rootSaga() {
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-// Used to store movies returned from the server
+// Used to store movies returned from the server -- adds database movie to reduxStore
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':
