@@ -12,6 +12,9 @@ class DetailsPage extends Component {
       <div className="App">
         <h1>YOU MADE IT TO DetailsPage</h1>
        <h1> we'll add details here </h1>
+       {this.props.reduxState.genres.map((fullDetail) =>{
+         return <img alt={fullDetail.title} src={fullDetail.poster}></img> 
+       })}
        {/* {JSON.stringify(this.props.reduxState)} */}
       </div>
     );
