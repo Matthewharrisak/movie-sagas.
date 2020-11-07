@@ -14,13 +14,13 @@ import Axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
-yield takeEvery('FETCH_MOVIE', fetchMovie)
+yield takeEvery('GOT_MOVIES', fetchMovie)
 }
 
 function* fetchMovie() {
     try {
-        const movieObject = yield Axios.get('/api/movie');
-        yield put({ type: 'FETCH_MOVIE' , payload: movieObject.data});
+        const movieObject = yield Axios.get('/api/genre');
+        yield put({type: 'SET_MOVIES' , payload: movieObject.data});
     } catch (error) {
         console.log('error in the fetch movies!!!!' , error);
     }
