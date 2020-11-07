@@ -6,29 +6,6 @@ import { connect } from 'react-redux';
 
 class HomePage extends Component {
 
-    // setting state as an empty [] lets us map, through the state inside of our getMovies function
-    // state = {
-    //     movieObject: []
-    // };
-
-    // axios get request to receive movie object from database and sets the object to this components State
-    // getMovies = () => {
-    //     console.log('in get movies!');
-    //     axios({
-    //         method: 'GET',
-    //         url: '/api/genre'
-    //     }).then((response) => {
-    //         console.log(response.data);
-    //         this.setState({
-    //             movieObject: response.data                
-    //         });
-    //         console.log(this.state , 'from GetMOvies state');
-            
-    //     }).catch((error) => {
-    //         console.log(error);
-    //     });
-    // }
-
     // fires off funtions on pageload! 
     componentDidMount = () => {
      console.log(this.props.reduxState);
@@ -43,11 +20,12 @@ class HomePage extends Component {
       <div className="App">
         <h1>Home Goes HERE</h1>
         {this.props.reduxState.movies.map((poster) =>{
-           return  <div className='posterDiv'> <button> <img  src={poster.poster}></img> 
-            </button> {poster.description} </div>
+        return  <div className='posterDiv'> 
+                <button className='posterButton'><img  src={poster.poster}></img> <h4> {poster.title} </h4> 
+                </button> 
+                </div>
         })}
         {/* {JSON.stringify(this.props.reduxState.movies)} */}
-        <button>Details</button>
       </div>
     );
   }

@@ -22,3 +22,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.posterDiv {
+display: inline;
+padding: 15px;
+}
+
+.posterButton {
+  border-radius: 10px;
+  padding: 5px;
+
+
+}
