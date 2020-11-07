@@ -10,15 +10,17 @@ class HomePage extends Component {
         this.props.dispatch({ type: 'GOT_MOVIES'});
       }   
 
-    //   nextPage = () => {
-    //     this.props.history.push('/DetailsPage');
-    //     this.props.dispatch({
-    //         type: 'FETCH_DETAILS', payload: this.state
-    //       });
-    //   }
+      nextPage = () => {
+        this.props.history.push('/DetailsPage');
+       
+      }
  
       handleChange = (poster) => {
          console.log( poster, "coming from the button click");
+         this.nextPage();
+         this.props.dispatch({
+            type: 'FETCH_DETAILS', payload: poster
+          });
         }
 
 

@@ -27,10 +27,10 @@ function* fetchMovie() {
     }
 }
 
-function* fetchMovieDetails (action) {
-    console.log( "what are we fetching" , action.payload);
-    const giphyArray = yield Axios.get(`/api/genre/${action.payload.id}`);
-    yield put({type: 'SET_MOVIES', payload: giphyArray});
+function* fetchMovieDetails (poster) {
+    console.log( "what are we fetching" , poster.payload);
+    const movieDetails = yield Axios.get(`/api/genre/${poster.payload}`);
+    yield put({type: 'SET_GENRES', payload: movieDetails.data});
 }
 
 // Create sagaMiddleware
