@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class DetailsPage extends Component {
+
+
   render() {
     return (
       <div className="App">
-        <h1>Home Goes HERE</h1>
+        <h1>YOU MADE IT TO DetailsPage</h1>
    
       </div>
     );
   }
 }
 
-export default DetailsPage;
+const mapReduxStateToProps = reduxState => ({
+  reduxState
+});
+
+export default connect(mapReduxStateToProps)(DetailsPage);
