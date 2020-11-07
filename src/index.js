@@ -10,16 +10,26 @@ import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
 import { takeEvery, put } from 'redux-saga/effects';
+import Axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
+yield takeEvery('FETCH_MOVIE', fetchMovie)
+}
 
+function* fetchMovie() {
+    try {
+        const movieObject = yield Axios.get('/api/movie');
+        yield put({ type: 'FETCH_MOVIE' , payload: movieObject.data});
+    } catch (error) {
+        console.log('error in the fetch movies!!!!' , error);
+    }
 }
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-// Used to store movies returned from the server -- adds database movie to reduxStorev  
+// Used to store movies returned from the server -- adds database movie to reduxStore  
 const movies = (state = [], action) => {
     switch (action.type) {
         case 'SET_MOVIES':

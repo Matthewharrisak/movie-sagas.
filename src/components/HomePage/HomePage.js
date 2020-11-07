@@ -37,7 +37,8 @@ class HomePage extends Component {
       <div className="App">
         <h1>Home Goes HERE</h1>
         {this.state.movieObject.map((poster) =>{
-           return  <div className='posterDiv'> <button> <img src={poster.poster}></img>  </button> {poster.description} </div>
+           return  <div className='posterDiv'> <button> <img  src={poster.poster}></img> 
+            </button> {poster.description} </div>
         })}
         {/* {JSON.stringify(this.state.movieObject.poster)} */}
         <button>Details</button>
