@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 
 class DetailsPage extends Component {
 
-  componentDidMount = () => {
-    console.log(this.props.reduxState);
-    this.props.dispatch({ type: 'FETCH_DETAILS'});
-  } 
+  // componentDidMount = () => {
+  //   this.props.dispatch({ type: 'FETCH_DETAILS'});
+  // } 
 
   render() {
     return (

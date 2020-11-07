@@ -15,12 +15,10 @@ class HomePage extends Component {
        
       }
  
-      handleChange = (poster) => {
-         console.log( poster, "coming from the button click");
-         this.nextPage();
+      handleChange = (posterClicked) => {
          this.props.dispatch({
-            type: 'FETCH_DETAILS', payload: poster
-          });
+        type: 'FETCH_DETAILS', payload: posterClicked});
+          this.nextPage();
         }
 
 

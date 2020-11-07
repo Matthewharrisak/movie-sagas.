@@ -27,9 +27,9 @@ function* fetchMovie() {
     }
 }
 
-function* fetchMovieDetails (poster) {
-    console.log( "what are we fetching" , poster.payload);
-    const movieDetails = yield Axios.get(`/api/genre/${poster.payload}`);
+function* fetchMovieDetails (posterClicked) {
+    console.log( "what are we fetching" , posterClicked.payload.id);
+    const movieDetails = yield Axios.get(`/api/genre/${posterClicked.payload.id}`);
     yield put({type: 'SET_GENRES', payload: movieDetails.data});
 }
 
