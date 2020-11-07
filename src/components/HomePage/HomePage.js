@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 
 class HomePage extends Component {
 
-   
+  
+
       // fires off funtions on pageload! 
       componentDidMount = () => {
         this.props.dispatch({ type: 'GOT_MOVIES'});
@@ -16,12 +17,11 @@ class HomePage extends Component {
     //       });
     //   }
  
-    //   handleChange = (event) => {
-    //       this.setState({
-    //           movieDetials: event.target.value
-    //       });
-    //       this.nextPage();
-    //   }
+      handleChange = (poster) => {
+         console.log( poster, "coming from the button click");
+        }
+
+
 
   render() {
     return (
@@ -29,7 +29,7 @@ class HomePage extends Component {
         <h1>Home Goes HERE</h1>
         {this.props.reduxState.movies.map((poster) =>{
             return  <div key={poster.title} className='posterDiv'> 
-                        <button onClick={this.handleChange} className='posterButton'>
+                        <button onClick={() => this.handleChange(poster)} className='posterButton'>
                             <img alt={poster.title} src={poster.poster}></img> 
                             <h4> {poster.title} </h4> 
                         </button> 
