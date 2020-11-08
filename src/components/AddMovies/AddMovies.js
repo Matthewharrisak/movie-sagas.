@@ -36,6 +36,11 @@ class AddMovies extends Component {
     
   }
 
+  cancelButton = () => {
+    this.props.history.push('/');
+   
+  }
+
   render() {
     return (
       <div className="App">
@@ -47,7 +52,7 @@ class AddMovies extends Component {
       
 
       <select required onChange={(event) => this.handleChange('genre_id', event)}>  
-       <option value='' >  default  </option>
+       <option value=''>  default  </option>
        {this.props.reduxState.genres.map((genre) => {
          return <option key={genre.name} value={genre.id}> {genre.name} </option>
        })}
@@ -56,6 +61,7 @@ class AddMovies extends Component {
        <button> SUBMIT NEW MOVIE </button>
 
        </form>
+       <button onClick={this.cancelButton}> cancel </button>
       </div>
     );
   }

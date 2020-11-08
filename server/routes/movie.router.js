@@ -48,6 +48,7 @@ router.get('/' , (req, res) => {
     console.log(`Error with Query` , error);
     res.sendStatus(500);
   });
+  
 });
 
 module.exports = router;

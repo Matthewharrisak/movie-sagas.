@@ -14,6 +14,11 @@ class HomePage extends Component {
         this.props.history.push('/DetailsPage');
        
       }
+
+      addMoviePage = () => {
+        this.props.history.push('/AddMovies');
+       }
+    
  
       handleChange = (posterClicked) => {
          this.props.dispatch({
@@ -27,6 +32,8 @@ class HomePage extends Component {
     return (
       <div className="homePage">
         <h1>Home Goes HERE</h1>
+        <button onClick={this.addMoviePage} > would you like to add new movie? </button>
+
         {this.props.reduxState.movies.map((poster) =>{
             return  <div key={poster.title} className='posterDiv'> 
                         <button onClick={() => this.handleChange(poster)} className='posterButton'>
