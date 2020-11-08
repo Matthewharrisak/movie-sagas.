@@ -21,30 +21,30 @@ yield takeEvery('GET_GENRE', getGenre)
 
 }
 
+// function that gets genre data from Database and is used for selector
 function* getGenre(){
     const genreList = yield Axios.get('/api/genre');
     yield put({type: 'SET_GENRES' , payload: genreList.data})
 
 }
 
+// function that gets data from AddMovie page and posts data to Database
 function* newMovie(action){
     console.log('what are we getting from add movie?' , action.payload);
     yield Axios.post('/api/movie', action.payload.newMovie);
 }
 
+// function to get object from database and sends to the reduxStore 
 function* fetchMovie() {
-    try {
         const movieObject = yield Axios.get('/api/movie');
         yield put({type: 'SET_MOVIES' , payload: movieObject.data});
-    } catch (error) {
-        console.log('error in the fetch movies!!!!' , error);
-    }
 }
 
+
+// function that fetches movie details based on clicking an image on the HomePage
 function* fetchMovieDetails (posterClicked) {
-    console.log( "what are we fetching" , posterClicked.payload.id);
-    const movieDetails = yield Axios.get(`/api/genre/${posterClicked.payload.id}`);
-    yield put({type: 'SET_GENRES', payload: movieDetails.data});
+        const movieDetails = yield Axios.get(`/api/genre/${posterClicked.payload.id}`);
+        yield put({type: 'SET_GENRES', payload: movieDetails.data});
 }
 
 // Create sagaMiddleware
