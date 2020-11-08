@@ -42,7 +42,7 @@ class AddMovies extends Component {
        <form onSubmit={this.addMovie}>
        <input  onChange={(event) => this.handleChange( 'title' , event)} type="text" id="newMovieTitle"/>
        <input  onChange={(event) => this.handleChange('poster' , event)} type="text" id="newDescription"/>
-       <input  onChange={(event) => this.handleChange('description' , event)} type="text" id="newPoster"/>
+       <textarea  onChange={(event) => this.handleChange('description' , event)} type="text" id="newPoster"/>
 
       
 

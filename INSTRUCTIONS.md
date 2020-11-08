@@ -54,10 +54,10 @@ Genres can be applied to many different movies. Movies can have multiple genres.
 
 This should show:
 
-- an input field (for the movie title)
-- an input field (for the movie poster image URL))
-- a textarea (for the movie description)
-- a dropdown (for the genres)
+<!-- - an input field (for the movie title) -->
+<!-- - an input field (for the movie poster image URL)) -->
+<!-- - a textarea (for the movie description) -->
+<!-- - a dropdown (for the genres) -->
 
 The Add Movie page should have the buttons:
 
