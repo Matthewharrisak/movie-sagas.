@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
 class Header extends Component {
   // Renders the entire app on the DOM
 
+  // stores the add movie button throughout the page 
   addMoviePage = () => {
     this.props.history.push('/AddMovies');
    }
@@ -13,10 +13,9 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="App">
-        <h1>Hello! from HEADER</h1>
+      <div className="Header">
+        <h1> Welcome to primeBuster</h1>
         <button onClick={this.addMoviePage} > would you like to add new movie? </button>
-
       </div>
     );
   }

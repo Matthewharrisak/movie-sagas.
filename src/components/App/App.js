@@ -9,16 +9,12 @@ import Header from '../Header/Header';
 
 class App extends Component {
   // Renders the entire app on the DOM
-
-  
-
-  render() {
+   render() {
     return (
       <div className="App">
 
         <Router>
           <Header/>
-          {/* <Route path ="/" component={App}/> */}
           <Route exact path="/" component={HomePage}/>
           <Route  path="/DetailsPage" component={DetailsPage}/>
           <Route  path='/AddMovies' component={AddMovies}/>
