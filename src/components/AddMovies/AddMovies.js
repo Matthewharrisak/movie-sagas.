@@ -39,7 +39,7 @@ class AddMovies extends Component {
       <h1> {this.state.newMovie.poster} </h1>
       <h1> {this.state.newMovie.title} </h1>
       <h1> {this.state.newMovie.description} </h1>
-
+      {JSON.stringify(this.state.newMovie)}
       </div>
     );
   }
