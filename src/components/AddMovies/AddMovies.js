@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 class AddMovies extends Component {
 
+
+  // setting state so we can create a newMovie object 
   state={ 
     newMovie:{
     title: '',
@@ -11,16 +13,19 @@ class AddMovies extends Component {
     genre_id: 0
   }}
 
+  // fires off function on page load
   componentDidMount = () => {
     this.getGenres();
   }
 
+  // gets genre data from Database, used in our <select> 
   getGenres = () => {
     this.props.dispatch({
       type: 'GET_GENRE'
     });
   }
 
+  // keyname is = to the values on each input, and setState changes the value or the state object
   handleChange= (keyname, event) => {
     event.preventDefault();
     this.setState({
@@ -30,47 +35,51 @@ class AddMovies extends Component {
     }});
   }
 
+
+    // addMovie dispatches the payload which is the values we collected from inputs and mutated them with setState
+    //after slicking the addMovie button, user is directed to homepage
   addMovie= () => {
     this.props.dispatch({ type: 'ADD_MOVIE' , payload: this.state});
-    console.log('were logging state' , this.state);
     this.props.history.push('/');
 
   }
 
+  // button to redirect user to homepage
   cancelButton = () => {
     this.props.history.push('/');
-   
-  }
+   }
 
   render() {
     return (
       <div className="App">
        <form onSubmit={this.addMovie}>
-       <input  onChange={(event) => this.handleChange( 'title' , event)} type="text" id="newMovieTitle"/>
-       <input  onChange={(event) => this.handleChange('poster' , event)} type="text" id="newDescription"/>
-       <textarea  onChange={(event) => this.handleChange('description' , event)} type="text" id="newPoster"/>
+              <input  onChange={(event) => this.handleChange( 'title' , event)} 
+              type="text" id="newMovieTitle" placeholder='Movie Title'/>
 
-      
+              <input  onChange={(event) => this.handleChange('poster' , event)}
+               type="text" id="newDescription" placeholder='Poster Link'/>
 
-      <select required onChange={(event) => this.handleChange('genre_id', event)}>  
-       <option value=''>  default  </option>
-       {this.props.reduxState.genres.map((genre) => {
-         return <option key={genre.name} value={genre.id}> {genre.name} </option>
-       })}
-       </select>
+              <textarea  onChange={(event) => this.handleChange('description' , event)} 
+              type="text" id="newPoster" placeholder='Movie Description'/>
 
-       <button> SUBMIT NEW MOVIE </button>
+              <select required onChange={(event) => this.handleChange('genre_id', event)}>  
+              <option value=''>  default  </option>
+             {this.props.reduxState.genres.map((genre) => {
+             return <option key={genre.name} value={genre.id}> {genre.name} </option>
+              })}
+             </select>
+
+             <button> SUBMIT NEW MOVIE </button>
 
        </form>
-       <button onClick={this.cancelButton}> cancel </button>
-      </div>
+
+
+              <button onClick={this.cancelButton}> cancel </button>
+    </div>
     );
   }
 }
-// value={this.state.newMovie.title}
-// value={this.state.newMovie.poster}
-// value={this.state.newMovie.description}
-// value={this.state.newMovie.genre_id}
+
 const mapReduxStateToProps = reduxState => ({
   reduxState
 });
