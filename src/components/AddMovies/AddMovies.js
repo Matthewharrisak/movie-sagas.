@@ -8,7 +8,7 @@ class AddMovies extends Component {
     title: '',
     poster: '',
     description: '',
-    genre_id: 1
+    genre_id: 0
   }}
 
   componentDidMount = () => {
@@ -40,14 +40,18 @@ class AddMovies extends Component {
     return (
       <div className="App">
        <form onSubmit={this.addMovie}>
-       <input  onChange={(event) =>this.handleChange( 'title' , event)} type="text" id="newMovieTitle"/>
+       <input  onChange={(event) => this.handleChange( 'title' , event)} type="text" id="newMovieTitle"/>
        <input  onChange={(event) => this.handleChange('poster' , event)} type="text" id="newDescription"/>
        <input  onChange={(event) => this.handleChange('description' , event)} type="text" id="newPoster"/>
 
+      
 
-
-      <select  onChange={(event) => this.handleChange('genre_id' , event)}>  
-       <option> sci-fi</option></select>
+      <select required onChange={(event) => this.handleChange('genre_id', event)}>  
+       <option value='' >  default  </option>
+       {this.props.reduxState.genres.map((genre) => {
+         return <option key={genre.name} value={genre.id}> {genre.name} </option>
+       })}
+       </select>
 
        <button> SUBMIT NEW MOVIE </button>
 
