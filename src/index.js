@@ -50,11 +50,6 @@ function* fetchMovieDetails (posterClicked) {
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
-// const addMovieReducer = (state = [], action) => {
-//     switch (action.type) {
-//         case 
-//     }
-// }
 
 // Used to store movies returned from the server -- adds database movie to reduxStore  
 const movies = (state = [], action) => {
