@@ -3,13 +3,17 @@ import { connect } from 'react-redux';
 
 class DetailsPage extends Component {
 
-  // componentDidMount = () => {
-  //   this.props.dispatch({ type: 'FETCH_DETAILS'});
-  // } 
+  
+  homePage = () => {
+    this.props.history.push('/');
+   
+  }
 
   render() {
     return (
-      <div className="App">
+     <div className="App">
+       <button onClick={() => this.homePage()}>HomePage</button>
+
         <h1>YOU MADE IT TO DetailsPage</h1>
        <h1> we'll add details here </h1>
        {this.props.reduxState.genres.map((fullDetail) =>{

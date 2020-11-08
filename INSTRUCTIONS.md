@@ -39,9 +39,9 @@ This should display all of the movies in the movie database. When a movie poster
 
 ### Details Page
 
-This should show all details **including genres**, for the selected movie.
+<!-- This should show all details **including genres**, for the selected movie. -->
 
- > Hint : You can make a GET request for a specific movie.
+ <!-- > Hint : You can make a GET request for a specific movie. -->
 
 The details page should have the button:
 
