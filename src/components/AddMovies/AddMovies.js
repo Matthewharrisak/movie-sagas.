@@ -33,7 +33,8 @@ class AddMovies extends Component {
   addMovie= () => {
     this.props.dispatch({ type: 'ADD_MOVIE' , payload: this.state});
     console.log('were logging state' , this.state);
-    
+    this.props.history.push('/');
+
   }
 
   cancelButton = () => {

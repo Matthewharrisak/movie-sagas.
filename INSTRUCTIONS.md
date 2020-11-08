@@ -61,7 +61,7 @@ This should show:
 
 The Add Movie page should have the buttons:
 
-- `Cancel` button, which should bring the user to the Home/List Page
+<!-- - `Cancel` button, which should bring the user to the Home/List Page -->
 - `Save` button, which should update the title and description in the database and bring the user to the Home/List Page (which now has the new movie)
 
 > Hint: Look at the /api/movie POST route -- it's been made already
