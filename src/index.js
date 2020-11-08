@@ -16,6 +16,12 @@ import Axios from 'axios';
 function* rootSaga() {
 yield takeEvery('GOT_MOVIES', fetchMovie)
 yield takeEvery('FETCH_DETAILS' , fetchMovieDetails)
+yield takeEvery('ADD_MOVIE', newMovie)
+}
+
+function* newMovie(action){
+    console.log('what are we getting from add movie?' , action.payload);
+    
 }
 
 function* fetchMovie() {
@@ -35,6 +41,12 @@ function* fetchMovieDetails (posterClicked) {
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
+
+// const addMovieReducer = (state = [], action) => {
+//     switch (action.type) {
+//         case
+//     }
+// }
 
 // Used to store movies returned from the server -- adds database movie to reduxStore  
 const movies = (state = [], action) => {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {HashRouter as Router, Route} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class AddMovies extends Component {
 
@@ -8,9 +8,11 @@ class AddMovies extends Component {
     title: '',
     poster: '',
     description: '',
+    genre_id: 0
   }}
 
   handleChange= (keyname, event) => {
+    event.preventDefault();
     this.setState({
       newMovie:{
         ...this.state.newMovie,
@@ -18,9 +20,8 @@ class AddMovies extends Component {
     }});
   }
 
-  addMovie= (event) => {
-    event.preventDefault();
-
+  addMovie= () => {
+    this.props.dispatch({ type: 'ADD_MOVIE' , payload: this.state});
     console.log('were logging state' , this.state);
     
   }
@@ -32,12 +33,12 @@ class AddMovies extends Component {
        <input value={this.state.newMovie.title} onChange={(event) =>this.handleChange( 'title' , event)} type="text" id="newMovieTitle"/>
        <input value={this.state.newMovie.poster} onChange={(event) => this.handleChange('poster' , event)} type="text" id="newDescription"/>
        <input value={this.state.newMovie.description} onChange={(event) => this.handleChange('description' , event)} type="text" id="newPoster"/>
-      
+      <select value={this.state.newMovie.genre_id} onChange={(event) => this.handleChange('genre_id' , event)}> genre </select>
        <button> SUBMIT NEW MOVIE </button>
        </form>
-      <h1> {this.state.newMovie.newPoster} </h1>
-      <h1> {this.state.newMovie.newTitle} </h1>
-      <h1> {this.state.newMovie.newDescription} </h1>
+      <h1> {this.state.newMovie.poster} </h1>
+      <h1> {this.state.newMovie.title} </h1>
+      <h1> {this.state.newMovie.description} </h1>
 
       </div>
     );
@@ -45,7 +46,7 @@ class AddMovies extends Component {
 }
 
 
-// title: event.target.value,
-// poster: event.target.value,
-// description: event.target.value,
-export default AddMovies;
+const mapReduxStateToProps = reduxState => ({
+  reduxState
+});
+export default connect(mapReduxStateToProps)(AddMovies);
