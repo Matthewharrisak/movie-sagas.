@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
 
 
 
-
+// selects all genres from database, which is used with out SAGA to send genres to reduxStore
 router.get('/' , (req, res) => {
   const queryText = `SELECT * FROM genres;`;
   pool.query(queryText)

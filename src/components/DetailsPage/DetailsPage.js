@@ -9,13 +9,15 @@ class DetailsPage extends Component {
    
   }
 
+
+  // detailsPage is displaying the movie details from the reduxStore - movies reducer
   render() {
     return (
      <div className="App">
+
        <button onClick={() => this.homePage()}>HomePage</button>
 
-        <h1>YOU MADE IT TO DetailsPage</h1>
-       <h1> we'll add details here </h1>
+       <h1> Detials  </h1>
        {this.props.reduxState.genres.map((fullDetail) =>{
          return <div key={fullDetail.name}> <img alt={fullDetail.title} src={fullDetail.poster}></img> 
           <p> {fullDetail.title} </p>
@@ -23,7 +25,6 @@ class DetailsPage extends Component {
           <p> {fullDetail.name} </p>
        </div>
        })}
-       {/* {JSON.stringify(this.props.reduxState)} */}
       </div>
     );
   }

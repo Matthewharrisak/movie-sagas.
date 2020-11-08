@@ -39,6 +39,8 @@ router.post('/', (req, res) => {
   })
 })
 
+
+// get request for all movies from database!
 router.get('/' , (req, res) => {
   const queryText = `SELECT * FROM movies;`;
   pool.query(queryText)
