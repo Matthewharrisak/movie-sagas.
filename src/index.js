@@ -21,7 +21,7 @@ yield takeEvery('ADD_MOVIE', newMovie)
 
 function* newMovie(action){
     console.log('what are we getting from add movie?' , action.payload);
-    yield Axios.post('/api/movie' ,action.payload);
+    yield Axios.post('/api/movie', action.payload.newMovie);
 }
 
 function* fetchMovie() {
@@ -44,7 +44,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 // const addMovieReducer = (state = [], action) => {
 //     switch (action.type) {
-//         case
+//         case 
 //     }
 // }
 

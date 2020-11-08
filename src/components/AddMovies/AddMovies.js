@@ -8,7 +8,7 @@ class AddMovies extends Component {
     title: '',
     poster: '',
     description: '',
-    genre_id: 0
+    genre_id: 1
   }}
 
   handleChange= (keyname, event) => {
@@ -30,11 +30,17 @@ class AddMovies extends Component {
     return (
       <div className="App">
        <form onSubmit={this.addMovie}>
-       <input value={this.state.newMovie.title} onChange={(event) =>this.handleChange( 'title' , event)} type="text" id="newMovieTitle"/>
-       <input value={this.state.newMovie.poster} onChange={(event) => this.handleChange('poster' , event)} type="text" id="newDescription"/>
-       <input value={this.state.newMovie.description} onChange={(event) => this.handleChange('description' , event)} type="text" id="newPoster"/>
-      <select value={this.state.newMovie.genre_id} onChange={(event) => this.handleChange('genre_id' , event)}> genre </select>
+       <input  onChange={(event) =>this.handleChange( 'title' , event)} type="text" id="newMovieTitle"/>
+       <input  onChange={(event) => this.handleChange('poster' , event)} type="text" id="newDescription"/>
+       <input  onChange={(event) => this.handleChange('description' , event)} type="text" id="newPoster"/>
+
+
+
+      <select  onChange={(event) => this.handleChange('genre_id' , event)}>  
+       <option> sci-fi</option></select>
+       
        <button> SUBMIT NEW MOVIE </button>
+
        </form>
       <h1> {this.state.newMovie.poster} </h1>
       <h1> {this.state.newMovie.title} </h1>
@@ -44,8 +50,10 @@ class AddMovies extends Component {
     );
   }
 }
-
-
+// value={this.state.newMovie.title}
+// value={this.state.newMovie.poster}
+// value={this.state.newMovie.description}
+// value={this.state.newMovie.genre_id}
 const mapReduxStateToProps = reduxState => ({
   reduxState
 });
