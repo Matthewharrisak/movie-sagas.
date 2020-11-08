@@ -20,8 +20,10 @@ router.get('/:id', (req, res) => {
 });
 
 
+
+
 router.get('/' , (req, res) => {
-  const queryText = `SELECT * FROM movies;`;
+  const queryText = `SELECT * FROM genres;`;
   pool.query(queryText)
   .then((result) => {
       res.send(result.rows);
@@ -30,6 +32,5 @@ router.get('/' , (req, res) => {
     res.sendStatus(500);
   });
 });
-
 
 module.exports = router;

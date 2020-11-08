@@ -11,6 +11,16 @@ class AddMovies extends Component {
     genre_id: 1
   }}
 
+  componentDidMount = () => {
+    this.getGenres();
+  }
+
+  getGenres = () => {
+    this.props.dispatch({
+      type: 'GET_GENRE'
+    });
+  }
+
   handleChange= (keyname, event) => {
     event.preventDefault();
     this.setState({
@@ -38,14 +48,10 @@ class AddMovies extends Component {
 
       <select  onChange={(event) => this.handleChange('genre_id' , event)}>  
        <option> sci-fi</option></select>
-       
+
        <button> SUBMIT NEW MOVIE </button>
 
        </form>
-      <h1> {this.state.newMovie.poster} </h1>
-      <h1> {this.state.newMovie.title} </h1>
-      <h1> {this.state.newMovie.description} </h1>
-      {JSON.stringify(this.state.newMovie)}
       </div>
     );
   }

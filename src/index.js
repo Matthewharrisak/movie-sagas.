@@ -17,6 +17,14 @@ function* rootSaga() {
 yield takeEvery('GOT_MOVIES', fetchMovie)
 yield takeEvery('FETCH_DETAILS' , fetchMovieDetails)
 yield takeEvery('ADD_MOVIE', newMovie)
+yield takeEvery('GET_GENRE', getGenre)
+
+}
+
+function* getGenre(){
+    const genreList = yield Axios.get('/api/genre');
+    yield put({type: 'SET_GENRES' , payload: genreList.data})
+
 }
 
 function* newMovie(action){
@@ -26,7 +34,7 @@ function* newMovie(action){
 
 function* fetchMovie() {
     try {
-        const movieObject = yield Axios.get('/api/genre');
+        const movieObject = yield Axios.get('/api/movie');
         yield put({type: 'SET_MOVIES' , payload: movieObject.data});
     } catch (error) {
         console.log('error in the fetch movies!!!!' , error);
