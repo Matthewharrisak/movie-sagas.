@@ -6,7 +6,10 @@ class AddMovies extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Home Goes HERE</h1>
+       <form>
+       <input type="text" id="newMovieTitle"/>
+       <button> SUBMIT NEW MOVIE </button>
+       </form>
    
       </div>
     );

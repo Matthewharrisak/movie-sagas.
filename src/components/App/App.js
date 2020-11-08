@@ -4,6 +4,7 @@ import './App.css';
 import HomePage from '../HomePage/HomePage'
 import DetailsPage from '../DetailsPage/DetailsPage'
 import { connect } from 'react-redux';
+import AddMovies from '../AddMovies/AddMovies';
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -12,7 +13,8 @@ class App extends Component {
       <div className="App">
         <h1>Hello!</h1>
         <Router>
-          <Route exact path="/" component={HomePage}/>
+          <AddMovies/>
+          {/* <Route exact path="/" component={HomePage}/> */}
           <Route exact path="/DetailsPage" component={DetailsPage}/>
         </Router>
       </div>
