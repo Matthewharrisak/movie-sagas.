@@ -26,12 +26,13 @@
 .posterDiv {
 display: inline;
 padding: 15px;
+flex-direction: row;
 }
 
 .Header {
   padding: 20px ;
-  border: solid black;
   background-color: cornsilk;
+  border-bottom: dotted rebeccapurple;
 }
 
 .posterButton {
@@ -40,5 +41,24 @@ padding: 15px;
   flex-wrap: wrap;
   width: 200px;
   /* height: 300px; */
+}
 
+.detailsDescription {
+vertical-align: bottom;
+text-align: center;
+}
+
+
+.addMovie {
+  flex-wrap: wrap;
+}
+
+.titleDiv {
+  margin-top: 200px;
+
+}
+
+.posterDiv {
+  padding-top: 200px;
+  box-sizing: content-box;
 }

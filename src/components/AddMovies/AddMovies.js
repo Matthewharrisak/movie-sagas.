@@ -51,31 +51,37 @@ class AddMovies extends Component {
 
   render() {
     return (
-      <div className="App">
-       <form onSubmit={this.addMovie}>
-              <input  onChange={(event) => this.handleChange( 'title' , event)} 
-              type="text" id="newMovieTitle" placeholder='Movie Title'/>
+         <div className="addMovie">
+          <form onSubmit={this.addMovie}>
+              <div id='titleDiv'>
+                    <input  onChange={(event) => this.handleChange( 'title' , event)} 
+                    type="text" id="newMovieTitle" placeholder='Movie Title'/>
+              </div>
+              <div id="posterDiv">
+                <input  onChange={(event) => this.handleChange('poster' , event)}
+                    type="text" id="newDescription" placeholder='Poster Link'/></div>
+                 
+              <div id='descriptionDiv'>
+                    <textarea  onChange={(event) => this.handleChange('description' , event)} 
+                    type="text" id="newPoster" placeholder='Movie Description'/>
+              </div>    
 
-              <input  onChange={(event) => this.handleChange('poster' , event)}
-               type="text" id="newDescription" placeholder='Poster Link'/>
+              <div id='genreDiv'>
+                    <select required onChange={(event) => this.handleChange('genre_id', event)}>  
+                    <option value=''>  default  </option>
+                  {this.props.reduxState.genres.map((genre) => {
+                  return <option key={genre.name} value={genre.id}> {genre.name} </option>
+                    })}
+                  </select>
+                  </div>
 
-              <textarea  onChange={(event) => this.handleChange('description' , event)} 
-              type="text" id="newPoster" placeholder='Movie Description'/>
+                  <button> SUBMIT NEW MOVIE </button>
 
-              <select required onChange={(event) => this.handleChange('genre_id', event)}>  
-              <option value=''>  default  </option>
-             {this.props.reduxState.genres.map((genre) => {
-             return <option key={genre.name} value={genre.id}> {genre.name} </option>
-              })}
-             </select>
-
-             <button> SUBMIT NEW MOVIE </button>
-
-       </form>
+           </form>
 
 
-              <button onClick={this.cancelButton}> cancel </button>
-    </div>
+                    <button onClick={this.cancelButton}> cancel </button>
+      </div>
     );
   }
 }
