@@ -20,9 +20,7 @@ class AddMovies extends Component {
 
   // gets genre data from Database, used in our <select> 
   getGenres = () => {
-    this.props.dispatch({
-      type: 'GET_GENRE'
-    });
+    this.props.dispatch({ type: 'GET_GENRE' });
   }
 
   // keyname is = to the values on each input, and setState changes the value or the state object
